@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
 
   def current_user
     session_token = session[:session_token]
-    return nil if session_token = nil 
-    @current_user ||= User.find_by_session_token(session_token)
+    return nil if session_token == nil 
+    current_user ||= User.find_by_session_token(session_token)
   end
 
   def sign_in(user)
@@ -23,8 +23,8 @@ class ApplicationController < ActionController::Base
   end
 
   def sign_out
-    current_user.try(:reset_session_token)
-    session_token = [:nil]
+    current_user.try(:reset_session_token!)
+    session[:session_token] = [:nil]
   end
 
   def require_signed_in!

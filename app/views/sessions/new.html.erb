@@ -1,0 +1,33 @@
+<style>
+
+.btn{
+  background: orange;
+}
+
+</style>
+
+<div class="container">
+  <%= render "layouts/errors" %>
+  
+  <div id="sign-in-box">
+    New to Kiva? <a href="<%= new_user_url %>">Register</a><br>
+    
+    <h3>Sign in using our form</h3>
+      <form action="<%= session_url %>" method="post">
+        <%= auth_token_input %>
+        <label>
+          Email<br>
+          <input type="text" name="user[email]">
+        </label>
+        <br>
+        <label>
+          Password<br>
+          <input type="password" name="user[password]">
+        </label>
+        <br>
+        <input type="submit" class="btn btn-primary" value="Login">
+      </form>
+    </div>
+</div>
+
+

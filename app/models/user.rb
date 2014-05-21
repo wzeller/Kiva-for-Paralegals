@@ -21,21 +21,21 @@ validates :password, length: {minimum: 6, allow_nil: :true}
 before_validation :ensure_session_token
 
 def self.generate_session_token
-  SecureRandom::urlBaseSafe(16)
+  SecureRandom::urlsafe_base64(16)
 end
 
-def find_by_credentials(email, password)
+def self.find_by_credentials(email, password)
   user = User.find_by_email(email)
   user.try(:is_password?, password) ? user : nil 
 end
 
 def password=(plainText)
   @password = plainText
-  self.password_digest = BCRypt::Password.create(@password)
+  self.password_digest = BCrypt::Password.create(@password)
 end
 
 def is_password?(plaintext)
-  BCRypt::Password.new(self.password_digest).is_password?(plaintext)
+  BCrypt::Password.new(self.password_digest).is_password?(plaintext)
 end
 
 def reset_session_token!

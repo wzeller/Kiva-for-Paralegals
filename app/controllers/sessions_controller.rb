@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
   def new
   end
 
@@ -14,8 +14,8 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    logout
-    redirect_to new_session
+    sign_out
+    redirect_to new_session_url
   end
 
 end

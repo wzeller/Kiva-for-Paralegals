@@ -2,12 +2,26 @@
 <html>
 <head>
   <title>KivaClone</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application'%>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Kiva</a>
+      </div>
+      <ul class="nav navbar-right">
+        <li>
+          <% if signed_in? %>
+            <%= button_to "Log out", session_url, { method: :delete, class: "btn btn-xs btn-warning" } %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </nav>
 <%= yield %>
 
 </body>
