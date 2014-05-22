@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_credentials(params[:user][:email], params[:user][:password])    
     
+    #handle login as guest by logging in as "Guest" with email "guest"
     if params[:user][:name] == "Login as guest"
       user = User.find_by_email("guest")
     end

@@ -1,0 +1,1 @@
+json.array! @paralegals, partial: 'api/paralegals/paralegal', as: :paralegal
