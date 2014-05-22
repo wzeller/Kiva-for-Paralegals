@@ -46,7 +46,6 @@ label{
   margin-top: 100px;
 }
 
-
 </style>
 
 <div class="container">
@@ -55,30 +54,24 @@ label{
       <%= render "layouts/errors" %>
       Already a member? <a href="<%= new_session_url %>">Sign in</a><br>
       <h3>Sign up</h3><div id="subscript">* required fields </div>
-        <form action="<%= users_url %>" method="post">
-          <%= auth_token_input %>
-          <label>
-            First Name *<br>
-            <input type="text" name="user[fname]" value="<%= @user.fname %>">
-          </label>
-          <br>
-          <label>
-            Last Name *<br>
-            <input type="text" name="user[lname]" value="<%= @user.lname %>">
-          </label>
-          <br>
-          <label>
-            Email *<br>
-            <input type="text" name="user[email]" value="<%= @user.email %>">
-          </label>
-          <br>
-          <label>
-            Password *<br>
-            <input class="password-field" type="password" name="user[password]">
-          </label>
-          <br>
-          <input type="submit" class="btn btn-primary" value="Register">
-        </form>
+      <%= form_for @user, :url => users_path, :html => { :multipart => true } do |form| %>
+        <%= form.label :fname, "First Name*"%><br>
+        <%= form.text_field :fname %>
+        <br>
+        <%= form.label :lname, "Last Name*"%><br>
+        <%= form.text_field :lname%>
+        <br>
+        <%= form.label :email, "Email*"%><br>
+        <%= form.text_field :email %>
+        <br>
+        <%= form.label :password, "Password*"%><br>
+        <%= form.password_field :password %>
+        <br>
+        <%= form.label :avatar, "Profile picture"%>
+        <%= form.file_field :avatar %>
+        <%= form.submit :create, value: "Create User", class: "btn btn-primary" %>
+      <% end %>
+
       </div>
     </div>
 </div>
