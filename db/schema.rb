@@ -11,10 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521174628) do
+ActiveRecord::Schema.define(version: 20140522001359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "organizations", force: true do |t|
+    t.string   "name",       null: false
+    t.string   "country",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "paralegals", force: true do |t|
+    t.string   "name",            null: false
+    t.string   "country",         null: false
+    t.integer  "organization_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sponsorships", force: true do |t|
+    t.integer  "user_id",      null: false
+    t.integer  "paralegal_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "fname",           null: false
@@ -24,9 +52,11 @@ ActiveRecord::Schema.define(version: 20140521174628) do
     t.string   "session_token",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "team_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["session_token"], name: "index_users_on_session_token", using: :btree
+  add_index "users", ["team_id"], name: "index_users_on_team_id", using: :btree
 
 end
