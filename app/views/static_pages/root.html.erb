@@ -1,12 +1,16 @@
+<div id="content" class="container"></div>
+<script>
+  $(function () {
+    // put stuff here
+  });
+</script>
+
 
 <style>
 
 .img-responsive{
-
- margin-top: 10px;
- margin-bottom: 10px;
- margin-left: -10px;
- margin-right: -10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .img-responsive:hover{
@@ -19,13 +23,13 @@
 }
 
 .head-strip{
-font-family:"Museo Slab 300", Rockwell, Georgia, serif;
-font-weight:300;
-font-style:normal;
-font-size:1.8em;
-color: white;
-background: #74b446;
-height: 70px;
+  font-family:"Museo Slab 300", Rockwell, Georgia, serif;
+  font-weight:300;
+  font-style:normal;
+  font-size:1.8em;
+  color: white;
+  background: #74b446;
+  height: 70px;
 }
 
 #tagline{
@@ -38,22 +42,7 @@ height: 70px;
   padding-right: 1px;
 }
 
-.row{
-  padding-top: -10px
-  margin-top: 0px;
-}
-
 </style>
-<div id="content" class="container"></div>
-<script>
-  $(function () {
-    // put stuff here
-  });
-</script>
-
-<% if current_user %>
-Welcome to Kiva, <%= current_user.fname %>!
-<% end %>
 
 <div class="head-strip conatiner-fluid">
   <div id="tagline">Just $25 dollars can give someone their rights</div>
