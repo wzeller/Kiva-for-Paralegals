@@ -11,7 +11,11 @@
   -moz-opacity:0.65;
   filter:alpha(opacity=65);
 }
-.container-fluid{
+.head-strip {
+  border-bottom: #4b9123 5px solid;
+}
+
+#home-photos {
   border-bottom: #4b9123 5px solid;
 }
 
@@ -40,30 +44,36 @@
 
 </style>
 
-
-
-
 <div class="head-strip container-fluid">
-  <div id="tagline">Just $25 dollars can give someone their rights</div>
+  <div id="tagline">Just $25 can give someone their rights</div>
 </div>
 
-<% var $a = 1 %>
-<% paralegals.each(function(paralegal){ %>
-  <% if ($a === 1){%>
-    <div class="row container-fluid">
-  <%}%>
-  
-  <% $div = "#photo" + $a %>
-  <div class="col-md-1" id="<%=$div%>">
-    <img class="img-responsive" src=<%= paralegal.get("avatar_file_name") %>>
-  </div>
+<div id="home-photos">
+  <% var $a = 1 %>
+  <% var $row = 1 %>
 
-  <%  $a += 1 %>
+  <% paralegals.each(function(paralegal){ %>
 
-  <%if ($a === 13){%>
-    </div>
-    <% $a = 1 %>
-  <%}%>
-<% }) %>
+    <% if ($a === 1){%>
+      <div class="row container-fluid">
+    <%}%>
+    
+    <% if ($row < 4){%>
+      <% $div = "#photo" + $a %>
+
+      <div class="col-md-1" id="<%=$div%>">
+        <a href="#"><img class="img-responsive" src=<%= paralegal.get("avatar_file_name") %>></a>
+      </div>
+    <%}%>
+
+    <%  $a += 1 %>
+
+    <%if ($a === 13){%>
+      </div>
+      <% $a = 1 %>
+      <% $row += 1 %>
+    <%}%>
+  <% }) %>
+</div>
 
   

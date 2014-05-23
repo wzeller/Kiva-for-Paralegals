@@ -6,6 +6,10 @@ KivaClone.Views.ParalegalsIndex = Backbone.View.extend({
   
   template: JST['paralegals/index'],
 
+  paralegalSubview: function(collection){
+
+  },
+
   render: function(){
     var renderedContent = this.template({paralegals: this.collection});
     this.$el.html(renderedContent);
