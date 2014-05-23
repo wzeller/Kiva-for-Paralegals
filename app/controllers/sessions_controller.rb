@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_credentials(params[:user][:email], params[:user][:password])    
     
-    #handle login as guest by logging in as "Guest" with email "guest"
+    #handle login as guest by creating new user "Guest"
     if params[:user][:name] == "Login as guest"
-      user = User.find_by_email("guest")
+      user = User.find_by_fname("Guest") || User.create(fname: "Guest", lname: "User", password: "password", email: "hiring?", money: 1000)
     end
     
     if user
@@ -25,3 +25,20 @@ class SessionsController < ApplicationController
   end
 
 end
+
+
+#  id                  :integer          not null, primary key
+#  fname               :string(255)      not null
+#  lname               :string(255)      not null
+#  password_digest     :string(255)      not null
+#  email               :string(255)      not null
+#  session_token       :string(255)      not null
+#  created_at          :datetime
+#  updated_at          :datetime
+#  team_id             :integer
+#  money               :integer
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
+#
