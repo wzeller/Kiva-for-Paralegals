@@ -3,6 +3,10 @@ KivaClone.Views.ParalegalsHome = Backbone.View.extend({
   initialize: function(){
     this.listenTo(this.collection, "sync add remove", this.render);
   },
+
+  // event: function(event){
+  //   "click "
+  // }; 
   
   template: JST['paralegals/home'],
 
