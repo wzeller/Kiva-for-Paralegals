@@ -61,7 +61,9 @@
       <% $div = "#photo" + $a %>
 
       <div class="col-md-1" id="<%=$div%>">
-        <a href="#"><img class="img-responsive" src=<%= paralegal.get("avatar_file_name") %>></a>
+        <a href=<%= "#/paralegals/" + paralegal.get("id") %>>
+          <img class="img-responsive" src=<%= paralegal.get("avatar_file_name") %>>
+        </a>
       </div>
     <%}%>
 

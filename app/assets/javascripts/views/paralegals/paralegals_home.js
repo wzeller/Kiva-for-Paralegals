@@ -4,10 +4,15 @@ KivaClone.Views.ParalegalsHome = Backbone.View.extend({
     this.listenTo(this.collection, "sync add remove", this.render);
   },
 
-  // event: function(event){
-  //   "click "
-  // }; 
+  events: {
+    // "mouseover .col-md-1": "handlePhotoClick"
+  }, 
   
+  handlePhotoClick: function(event){
+    alert("mouseover")
+    console.log(event.currentTarget)
+  },
+
   template: JST['paralegals/home'],
 
   paralegalSubview: function(collection){
