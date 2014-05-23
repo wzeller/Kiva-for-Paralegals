@@ -2,6 +2,7 @@ KivaClone.Routers.AppRouter = Backbone.Router.extend({
 
   routes: {
     "": "home",
+    "paralegals": "index",
   },
 
   home: function(){
@@ -10,5 +11,7 @@ KivaClone.Routers.AppRouter = Backbone.Router.extend({
     var homeView = new KivaClone.Views.ParalegalsHome({collection: collection});
     $('#content').html(homeView.render().$el);
   },
+
+
 
 });
