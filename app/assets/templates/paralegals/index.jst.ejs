@@ -1,3 +1,69 @@
+
+<style>
+
+.img-responsive{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.img-responsive:hover{
+  opacity:0.65;
+  -moz-opacity:0.65;
+  filter:alpha(opacity=65);
+}
+.container-fluid{
+  border-bottom: #4b9123 5px solid;
+}
+
+.head-strip{
+  font-family:"Museo Slab 300", Rockwell, Georgia, serif;
+  font-weight:300;
+  font-style:normal;
+  font-size:1.8em;
+  color: white;
+  background: #74b446;
+  height: 70px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#tagline{
+  padding-top: 14px;
+  padding-left: 111px;
+}
+
+.col-md-1{
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+
+</style>
+
+
+
+
+<div class="head-strip container-fluid">
+  <div id="tagline">Just $25 dollars can give someone their rights</div>
+</div>
+
+<% var $a = 1 %>
 <% paralegals.each(function(paralegal){ %>
-  <%= paralegal.escape("name") %><br>
-<%})%>
+  <% if ($a === 1){%>
+    <div class="row container-liquid">
+  <%}%>
+  
+  <% $div = "#photo" + $a %>
+  <div class="col-md-1" id="<%=$div%>">
+    <img class="img-responsive" src=<%= paralegal.get("avatar_file_name") %>>
+  </div>
+
+  <%  $a += 1 %>
+
+  <%if ($a === 13){%>
+    </div>
+    <% $a = 1 %>
+  <%}%>
+<% }) %>
+
+  
