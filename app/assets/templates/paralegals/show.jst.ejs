@@ -75,7 +75,7 @@
 
   #pulldown-button{
     margin-left: 15px;
-    background: url(/img/icon/arrow_dropdown.png) no-repeat 88% 50%, -webkit-gradient(linear,left top,left bottom,color-stop(0, #f7f7f2),color-stop(1, #ebebe5));
+    background: no-repeat 88% 50%, -webkit-gradient(linear,left top,left bottom,color-stop(0, #f7f7f2),color-stop(1, #ebebe5));
   }
 
   #donate-button{
@@ -110,7 +110,11 @@
           <div class="row" id="long-description">
             The solidarity group “Mujeres Solidarias En Acción” (Caring Women in Action) consists of three members, two women and one man. They are responsible for eight children among them. The members are originally from Carazo, a place that is located in the central part of the region. They are known for being hardworking, responsible, and having the drive to succeed on a personal level. In their free time, they enjoy being around their children. Unfortunately, due to the lack of financial resources, the members were not able to finish their studies. They currently strive each day to provide a better future for their children.
           </div>
-          <div class="row"></div>
+          <div class="row">
+            <% if (sponsors.length > 0){ %>
+              <%= sponsors.first().get("fname") %>
+            <%}%>
+          </div>
           <div class="row"></div>
         </div>
         
@@ -133,11 +137,11 @@
             <span id="donation-message">Select amount to donate</span><br>
             <div class="btn-group">
               <button id="pulldown-button" class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
-                $25 <span class="caret"></span>
+               $25 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                  <li><a href="#25">$25</a></li>
-                  <li><a href="#50">$50</a></li>
+                  <li><a href="#">$25</a></li>
+                  <li><a href="#">$50</a></li>
                   <li><a href="#75">$75</a></li>
                   <li><a href="#100">$100</a></li>
                   <li><a href="#125">$125</a></li>

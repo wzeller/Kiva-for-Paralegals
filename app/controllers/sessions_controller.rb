@@ -25,20 +25,3 @@ class SessionsController < ApplicationController
   end
 
 end
-
-
-#  id                  :integer          not null, primary key
-#  fname               :string(255)      not null
-#  lname               :string(255)      not null
-#  password_digest     :string(255)      not null
-#  email               :string(255)      not null
-#  session_token       :string(255)      not null
-#  created_at          :datetime
-#  updated_at          :datetime
-#  team_id             :integer
-#  money               :integer
-#  avatar_file_name    :string(255)
-#  avatar_content_type :string(255)
-#  avatar_file_size    :integer
-#  avatar_updated_at   :datetime
-#

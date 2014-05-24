@@ -3,12 +3,13 @@ module Api
     
     def index
       @paralegals = Paralegal.all
-      render :index  
+      render "api/paralegals/index" 
     end
 
     def show
       @paralegal = Paralegal.find(params[:id])
-      render partial: "api/paralegals/paralegal", locals: {paralegal: @paralegal}
+      @sponsors = @paralegal.sponsors
+      render "api/paralegals/show", locals: {paralegal: @paralegal}
     end
 
   end
