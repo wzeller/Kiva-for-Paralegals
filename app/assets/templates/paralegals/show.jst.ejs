@@ -24,15 +24,14 @@
   .jumbotron{
     margin-top: 10px;
     background-color: #fff;
-    height: 800px;
+    height: 1200px;
     border: #ccc 1px solid;
     -webkit-box-shadow: 0px -2px 8px -4px #888, 1px 1px 4px #ccc;
   }
 
-  .img-container{
-    float: left;
-    width: 400px;
-    height: 120px;
+  #img-container{
+
+    border: solid black
   }
 
   .img-responsive{
@@ -46,13 +45,9 @@
   }
 
   #case-description{
-    padding-top: 20px;
-    padding-right: 55px;
-    padding-left: 20px;
+
+    padding-right: 20px;
     padding-bottom: 20px;
-    float: right;
-    width: 40%;
-    height: 45%;
     font-family: 'Proxima Nova Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-size: 1.4286em;
     font-weight: 400;
@@ -60,11 +55,23 @@
   }
 
   #donation{
-    border: solid black;
     float: right;
-     width: 40%;
+    width: 40%;
     height: 45%;
+    position: absolute;
+  }
 
+  #caption{
+    background-color: #efefef;
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+  }
+
+  #long-description{
+    border-right: #ccc 1px solid;
+    font-family: 'Proxima Nova Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
   }
 
 
@@ -78,18 +85,42 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div id="info-container" class="jumbotron">
-        <div class="img-container">
-          <img class="img-responsive" src=<%= paralegal.get("avatar_file_name") %>>
-        </div>
-        <div class="fund-container">
-          <div id="case-description">
-            A portion of G.s. Mujeres Solidarias En Accion Group's $1,725 loan helps a member to buy trousers, shorts, skirts, blouses, bedding, pajamas, sandals, and perfumes.
+        
+        <div class="col-md-7">
+          <div class="row" id="img-container">
+            <img class="img-responsive" src=<%= paralegal.get("avatar_file_name") %>>
           </div>
-          <div id="donation">
+          <div class="row" id="caption">
+            <strong>Pictured:</strong> <%= paralegal.escape("name") %> outside the house
           </div>
+          <div class="row" id="long-description">
+            The solidarity group “Mujeres Solidarias En Acción” (Caring Women in Action) consists of three members, two women and one man. They are responsible for eight children among them. The members are originally from Carazo, a place that is located in the central part of the region. They are known for being hardworking, responsible, and having the drive to succeed on a personal level. In their free time, they enjoy being around their children. Unfortunately, due to the lack of financial resources, the members were not able to finish their studies. They currently strive each day to provide a better future for their children.
+          </div>
+          <div class="row"></div>
+          <div class="row"></div>
         </div>
+        
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+          <div class="row" id="case-description">
+             A portion of G.s. Mujeres Solidarias En Accion Group's $1,725 loan helps a member to buy trousers, shorts, skirts, blouses, bedding, pajamas, sandals, and perfumes.
+          </div>
+         <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                60%
+            </div>
+          </div>
+
+        </div>
+
+          <div class="row"></div>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
 
+
+
+ 
