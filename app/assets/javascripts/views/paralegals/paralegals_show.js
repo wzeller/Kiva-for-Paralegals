@@ -1,7 +1,7 @@
 KivaClone.Views.ParalegalsShow = Backbone.View.extend({
   
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.model, "sync change", this.render);
     this.listenTo(this.collection, "sync", this.render);
   },
   
@@ -13,17 +13,41 @@ KivaClone.Views.ParalegalsShow = Backbone.View.extend({
   },
 
   handleLoanSelect: function(event){
+    event.preventDefault();
     var newContent = $(event.currentTarget).text() 
     $("#pulldown-button").text(newContent).append('<span class="caret"></span>')
     $("#donate-button").val($(event.currentTarget).text())
   },
 
   handleDonate: function(event){
-    console.log($(event.currentTarget).val())
+    var that = this;
+    var donation = $(event.currentTarget).val().slice(1);
+    var user = KivaClone.currentUser;
+    var paralegalMoney = parseInt(this.model.get("money"), 10) + parseInt(donation, 10);
+    var userMoney = user.get("money");
+    var remainingMoney = userMoney - donation; 
+    if (userMoney > donation){
+      user.save({money: remainingMoney, sponsorship: this.model.id, amount: paralegalMoney}, {
+        success: function(){
+          that.model.fetch({
+            success: function(){
+              KivaClone.currentUser.fetch({
+                success: function(){
+                  $("#button-area").append('<div class="alert alert-success">Thank you for your generosity!</div>')
+                }
+              });
+            }
+          });
+         
+        },
+        errors: function(){
+          alert("Something went wrong -- try again!");
+        }
+      })
 
-    //get current user from window; find out how much money has; if enough, post update to current
-    //user using val; post new sponsorship; post update to paralegal's money; update thermometer and percentage; 
-    //possibly rerender to add sponsor to bottom of page; handle success and error with messages
+    } else {
+      alert("You have insufficient funds.")
+    }
   },
 
   render: function(){
