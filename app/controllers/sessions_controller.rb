@@ -5,9 +5,11 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_credentials(params[:user][:email], params[:user][:password])    
     
-    #handle login as guest by creating new user "Guest"
+    #handle login as guest by creating new user "Guest"; always start with $1000
     if params[:user][:name] == "Login as guest"
-      user = User.create(fname: "Guest", lname: "User", password: "password", email: "hiring?", money: 1000)
+      user = User.find_by_fname("Guest") || User.create(fname: "Guest", lname: "User", password: "password", email: "hiring?", money: 1000, avatar_file_name: "assets/guest.jpg")
+      user.money = 1000
+      user.save!
     end
     
     if user
