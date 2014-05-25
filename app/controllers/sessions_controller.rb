@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     
     #handle login as guest by creating new user "Guest"
     if params[:user][:name] == "Login as guest"
-      user = User.find_by_fname("Guest") || User.create(fname: "Guest", lname: "User", password: "password", email: "hiring?", money: 1000)
+      user = User.create(fname: "Guest", lname: "User", password: "password", email: "hiring?", money: 1000)
     end
     
     if user

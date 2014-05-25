@@ -131,9 +131,9 @@
           <div class="row" id="sponsors">
             <% if (sponsors.length > 0){ %>
               <% if (sponsors.length === 1) { %>
-                <h1>Showing <%= sponsors.length %> sponsor for this paralegal.</h1><br>
+                <h1>Showing <%= sponsors.length %> sponsor for this paralegal</h1><br>
               <%} else {%>
-                <h1>Showing <%= sponsors.length %> sponsors for this paralegal.</h1><br>
+                <h1>Showing <%= sponsors.length %> sponsors for this paralegal</h1><br>
               <% } %>
 
               <% sponsors.each(function(sponsor){ %>
@@ -144,6 +144,7 @@
                       <img class="img-responsive" src=<%= sponsor.escape("avatar") %>>
                       </a>
                     </div>
+
               <%}) %>
             <%}%>
           </div>
