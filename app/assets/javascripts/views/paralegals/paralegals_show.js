@@ -3,6 +3,7 @@ KivaClone.Views.ParalegalsShow = Backbone.View.extend({
   initialize: function(){
     this.listenTo(this.model, "sync change", this.render);
     this.listenTo(this.collection, "sync", this.render);
+    this.fired = false;
   },
   
   template: JST['paralegals/show'],
@@ -10,6 +11,15 @@ KivaClone.Views.ParalegalsShow = Backbone.View.extend({
   events: {
     "click a": "handleLoanSelect",
     "click input": "handleDonate",
+    "mouseover #button-area": "displayMoney"
+  },
+
+  displayMoney: function(event){
+    if (this.fired === false){
+      $('.modal').modal("show")
+      this.fired = true; 
+    }
+    
   },
 
   handleLoanSelect: function(event){
@@ -52,8 +62,8 @@ KivaClone.Views.ParalegalsShow = Backbone.View.extend({
 
   render: function(){
     var renderedContent = this.template({paralegal: this.model, sponsors: this.collection});
-
     this.$el.html(renderedContent);
+    this.fired = false;
     return this;
   },
 
