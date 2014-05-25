@@ -19,7 +19,7 @@
 #
 
 class User < ActiveRecord::Base
-attr_reader :password 
+attr_reader :password, :avatar 
 validates :fname, :lname, :password_digest, presence: :true
 validates :email, :session_token, presence: true, uniqueness: true
 validates :password, length: {minimum: 6, allow_nil: :true}
@@ -30,7 +30,7 @@ belongs_to :team
 has_many :sponsorships, inverse_of: :user 
 has_many :paralegals, through: :sponsorships, source: :paralegal
 
-has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => "/images/:style/missing.png"
+has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => "/images/:style/guest.jpg"
 validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
 

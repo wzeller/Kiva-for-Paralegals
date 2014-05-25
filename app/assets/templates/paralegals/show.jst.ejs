@@ -100,6 +100,11 @@
     color: #4b9123;
   }
 
+  .col-md-1 {
+    height: 100px;
+    width: 100px;
+  }
+
 
 </style>
 
@@ -130,10 +135,18 @@
               <%} else {%>
                 <h1>Showing <%= sponsors.length %> sponsors for this paralegal.</h1><br>
               <% } %>
-                <%= sponsors.first().get("fname") %>
+
+              <% sponsors.each(function(sponsor){ %>
+                
+                    <div class="col-md-1">
+                      <%= sponsor.get("fname") %>
+                      <a href=<%= "#/users/" + sponsor.get("id") %>>
+                      <img class="img-responsive" src=<%= sponsor.escape("avatar") %>>
+                      </a>
+                    </div>
+              <%}) %>
             <%}%>
           </div>
-
 
           <div class="row"></div>
         </div>
