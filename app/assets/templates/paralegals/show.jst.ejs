@@ -93,7 +93,6 @@
 </style>
 
 
-
 <h1 id="paralegalName"><%= paralegal.escape("name") %></h1>
 <span id="country"><%= paralegal.escape("country") %></span>
 
@@ -127,10 +126,10 @@
             <div class="row" id="case-description">
                A portion of G.s. Mujeres Solidarias En Accion Group's $1,725 loan helps a member to buy trousers, shorts, skirts, blouses, bedding, pajamas, sandals, and perfumes.
             </div>
-            <span id="percent-raised">60%</span><span id="amount-to-go"> raised, $1,350 left to go.</span>
+            <span id="percent-raised"><%=(paralegal.escape("money")/1000)*100 + "%"%></span><span id="amount-to-go"> raised, $<%= 1000- paralegal.escape("money")%> left to go.</span>
             <div class="progress">
-              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                <span class="sr-only">60% Complete (success)</span>
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=(paralegal.escape("money")/1000)*100 + "%"%>;">
+                <span class="sr-only"><%=(paralegal.escape("money")/1000)*100 + "%"%> Complete (success)</span>
               </div>
             </div>
             

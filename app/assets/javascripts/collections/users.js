@@ -1,5 +1,7 @@
 KivaClone.Collections.Users = Backbone.Collection.extend({
 
-  model: KivaClone.Models.User
+  url: "/api/users",
+
+  model: KivaClone.Models.User,
 
 });
