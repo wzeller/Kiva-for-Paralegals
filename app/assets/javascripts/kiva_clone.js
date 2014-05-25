@@ -8,7 +8,9 @@ window.KivaClone = {
     KivaClone.Collections.users = new KivaClone.Collections.Users();
     KivaClone.Collections.users.fetch({
       success: function(){
+        if (window.currentUser){
         KivaClone.currentUser = KivaClone.Collections.users.get(window.currentUser.id);
+        }
       }
     });
     KivaClone.Collections.paralegals.fetch({
