@@ -8,7 +8,8 @@ module Api
 
     def show
       @user = User.find(params[:id])
-      render partial: "api/users/user", locals: {user: @user}
+      @paralegals = @user.paralegals
+      render "api/users/show", locals: {user: @user}
     end
 
     def update

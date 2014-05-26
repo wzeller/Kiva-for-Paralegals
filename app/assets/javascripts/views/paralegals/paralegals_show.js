@@ -29,9 +29,15 @@ KivaClone.Views.ParalegalsShow = Backbone.View.extend({
 
   handleDonate: function(event){
     var that = this;
-    var donation = $(event.currentTarget).val().slice(8);
+    var donation = parseInt($(event.currentTarget).val().slice(8), 10);
+    var goal = 1000;
     var user = KivaClone.currentUser;
-    var paralegalMoney = parseInt(this.model.get("money"), 10) + parseInt(donation, 10);
+    var previousMoney = parseInt(this.model.get("money"), 10);
+    if ((previousMoney + donation) > goal){ 
+      donation = goal - previousMoney;
+      alert("You donated more than the goal.  Your actual donation is " + donation)
+    } 
+    var paralegalMoney = previousMoney + donation;
     var userMoney = user.get("money");
     var remainingMoney = userMoney - donation; 
     if (userMoney >= donation){

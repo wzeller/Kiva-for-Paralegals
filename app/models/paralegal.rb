@@ -18,7 +18,7 @@
 class Paralegal < ActiveRecord::Base
   validates :name, :country, :organization_id,  presence: true 
   
-  has_many :sponsorships, inverse_of: :paralegal
+  has_many :sponsorships, inverse_of: :paralegal, dependent: :destroy
   has_many :sponsors, through: :sponsorships, source: :user
   belongs_to :organization 
 

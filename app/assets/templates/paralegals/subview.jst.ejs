@@ -90,15 +90,26 @@
         Read their story.
         </a>
       </div>
+      
+      <% if (1000 - (Math.floor(paralegal.escape("money"))) > 0){ %>
+        <div class="col-md-4 fundraising" id="<%="fundraising" + paralegal.get("id")%>">
+          <span id="percent-raised"><%=(Math.floor(paralegal.escape("money")/10)) + "%"%></span><span id="amount-to-go"> raised, $<%= 1000- paralegal.escape("money")%> left to go.</span>
 
-      <div class="col-md-4 fundraising" id="<%="fundraising" + paralegal.get("id")%>">
-        <span id="percent-raised"><%=(Math.floor(paralegal.escape("money")/10)) + "%"%></span><span id="amount-to-go"> raised, $<%= 1000- paralegal.escape("money")%> left to go.</span>
-
-        <div class="progress">
-          <div id="progress-bar" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%=(Math.floor(paralegal.escape("money")/10)) + "%"%>;"><span class="sr-only">40% Complete (success)</span></div>
+          <div class="progress">
+            <div id="progress-bar" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%=(Math.floor(paralegal.escape("money")/10)) + "%"%>;"><span class="sr-only">40% Complete (success)</span></div>
+          </div>
+          <input type="submit" id="donate-button" class="btn btn-primary btn-sm" name="user[name]" value="Donate $25">
         </div>
-        <input type="submit" id="donate-button" class="btn btn-primary btn-sm" name="user[name]" value="Donate $25">
+      <%} else {%>
+
+       <div class="col-md-4 fundraising" id="<%="fundraising" + paralegal.get("id")%>">
+          <span id="percent-raised">100%</span><span id="amount-to-go"> raised, thanks to all of you!</span>
+          <div class="progress">
+            <div id="progress-bar" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><span>Fully funded!</span></div>
+          </div>
       </div>
+      <%}%>
+
     </div>
   </div>
 </div>

@@ -3,28 +3,43 @@ KivaClone.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "": "home",
     "paralegals/index": "index",
-    "paralegals/:id": "show",
+    "paralegals/:id": "showParalegal",
+    "user": "showUser",
   },
 
   home: function(){
     KivaClone.Collections.paralegals.fetch()
     var collection = KivaClone.Collections.paralegals;
     var homeView = new KivaClone.Views.ParalegalsHome({collection: collection});
-    $('#content').html(homeView.render().$el);
+    this._swapView(homeView);
   },
 
   index: function(){
     KivaClone.Collections.paralegals.fetch()
     var collection = KivaClone.Collections.paralegals;
     var indexView = new KivaClone.Views.ParalegalsIndex({collection: collection});
-    $('#content').html(indexView.render().$el);
+    this._swapView(indexView);
   },
 
-  show: function(id){
+  showParalegal: function(id){
     var paralegal = KivaClone.Collections.paralegals.getOrFetch(id);
     paralegal.fetch();
     var showView = new KivaClone.Views.ParalegalsShow({model: paralegal, collection: paralegal.sponsors()});
-    $('#content').html(showView.render().$el);
+    this._swapView(showView);
+  },
+
+  showUser: function(){
+    debugger
+    var user = KivaClone.currentUser;
+    user.fetch();
+    var userView = new KivaClone.Views.UserShow({model: user});
+    this._swapView(userView);
+  },
+
+  _swapView: function (newView) {
+    this._currentView && this._currentView.remove();
+    this._currentView = newView;
+    $('#content').html(newView.render().$el);
   },
 
 });

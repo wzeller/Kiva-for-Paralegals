@@ -27,7 +27,7 @@ validates :password, length: {minimum: 6, allow_nil: :true}
 before_validation :ensure_session_token
 
 belongs_to :team
-has_many :sponsorships, inverse_of: :user 
+has_many :sponsorships, inverse_of: :user, dependent: :destroy 
 has_many :paralegals, through: :sponsorships, source: :paralegal
 
 has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => "/images/:style/guest.jpg"

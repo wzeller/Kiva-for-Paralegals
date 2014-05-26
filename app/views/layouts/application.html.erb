@@ -6,8 +6,8 @@ nav.navbar{
 }
 
 li{
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .btn-xs{
@@ -22,7 +22,11 @@ li{
 }
 
 .btn-xs{
-  margin-right: 35px;
+  margin-right: 5px;
+}
+
+#current-money{
+  float: left;
 }
 
 </style>
@@ -72,16 +76,25 @@ li{
             <li><a href="#">My paralegals</a></li>
             <li><a href="#">My teams</a></li>
             <li><a href="#">Messages</a></li>
+            <li>
+              <% if signed_in? %>
+                <li id="signout-button"><%= link_to "Sign out", session_url, { method: :delete } %></li>
+              <%else%>
+                <li><%= link_to "Sign in", new_session_url, { method: :get, class: "btn btn-xs btn-success" } %></li>
+              <% end %>
+            </li>
+
+
           </ul>
         </li>
       </div>
       <% end %>
 
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-left">
         <li>
-          <% if signed_in? %>
-            <li><%= button_to "Sign out", session_url, { method: :delete, class: "btn btn-xs btn-danger" } %></li>
-          <%else%>
+          <% if !signed_in? && request.env['PATH_INFO'] == "/session/new" %>
+            <li><%= button_to "Register", new_user_url, { method: :get, class: "btn btn-xs btn-success" } %></li>
+          <% elsif !signed_in? && request.env['PATH_INFO'] == "/users/new" %>
             <li><%= button_to "Sign in", new_session_url, { method: :get, class: "btn btn-xs btn-success" } %></li>
           <% end %>
         </li>
