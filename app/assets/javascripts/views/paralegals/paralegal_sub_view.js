@@ -3,7 +3,6 @@ KivaClone.Views.ParalegalSubview = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.model, "sync change", this.render);
-    // this.listenTo(this.collection, "sync", this.render);
   },
 
   events: {
@@ -34,7 +33,9 @@ KivaClone.Views.ParalegalSubview = Backbone.View.extend({
             success: function(){
               KivaClone.currentUser.fetch({
                 success: function(){
-                  $("#fundraising").append('<div class="alert alert-success">Thank you for your generosity!</div>')
+                  var target = "#fundraising" + that.model.get("id")
+                  $(target).append('<div class="alert alert-success">Thank you for your generosity!</div>')
+                  $('.alert').fadeOut(4000, function(){});
                 }
               });
             }

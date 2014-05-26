@@ -43,6 +43,7 @@ KivaClone.Views.ParalegalsShow = Backbone.View.extend({
                 success: function(){
                   that.fired = false;
                   $("#button-area").append('<div class="alert alert-success">Thank you for your generosity!</div>')
+                  $('.alert').fadeOut(4000, function(){});
                 }
               });
             }

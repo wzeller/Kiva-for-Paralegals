@@ -1,7 +1,43 @@
-<ul>
- <% paralegals.each(function(paralegal){ %>
- <li> <%= paralegal.escape("name") %> </li>
- <%})%>
-</ul>
+<style>
 
+  #content {
+    font: .875em/1.357 arial, helvetica, sans-serif;
+  }
+
+  .jumbotron{
+    margin-top: 10px;
+    background-color: white;
+    margin-left: 9px;
+    -webkit-box-shadow: 0px -2px 8px -4px #888, 1px 1px 4px #ccc;
+  }
+
+  h2 {
+    color: #4b9123;
+    font-family: 'Museo Slab 500', Rockwell, Georgia, serif;
+    font-weight: 500;
+    font-size: 2em;
+    margin-left: 9px;
+  }
+
+</style>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h2>Choose a Paralegal</h2>
+      </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div id="info-container" class="jumbotron">
+        <div id="paralegalInfo">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   
