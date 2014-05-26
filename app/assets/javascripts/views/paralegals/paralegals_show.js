@@ -26,7 +26,7 @@ KivaClone.Views.ParalegalsShow = Backbone.View.extend({
     event.preventDefault();
     var newContent = $(event.currentTarget).text() 
     $("#pulldown-button").text(newContent).append('<span class="caret"></span>')
-    $("#donate-button").val($(event.currentTarget).text())
+    $("#donate-button").val("Donate " + $(event.currentTarget).text())
   },
 
   handleDonate: function(event){

@@ -1,0 +1,41 @@
+ <style>
+
+ #paralegalName {
+    color: #4b9123;
+    font-family: 'Museo Slab 500', Rockwell, Georgia, serif;
+    font-weight: 500;
+    font-size: 2.357em;
+  }
+
+
+</style>
+
+<div class=row>
+  <div class="col-md-4" id="photo">
+    <div id="img-container">
+      <img class="img-responsive" src=<%= paralegal.get("avatar_file_name") %>>
+    </div>
+  </div>
+
+  <div class="col-md-4" id="bio">
+    <a href=<%= "#/paralegals/" + paralegal.get("id") %>>
+      <h1 id="paralegalName"><%=paralegal.escape("name")%></h1>
+    </a>
+    <%= paralegal.escape("country") %><br>
+    A donation can help <%= paralegal.escape("name")%> fight for justice.
+    <a href=<%= "#/paralegals/" + paralegal.get("id") %>>
+    Read their story.
+    </a>
+  </div>
+
+  <div class="col-md-4" id="fundraising">
+    <span id="percent-raised"><%=(Math.floor(paralegal.escape("money")/10)) + "%"%></span><span id="amount-to-go"> raised, $<%= 1000- paralegal.escape("money")%> left to go.</span>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=(Math.floor(paralegal.escape("money")/10)) + "%"%>;">
+          <span class="sr-only"><%=(paralegal.escape("money")/1000)*100 + "%"%> Complete (success)</span>
+        </div>
+      </div>
+    </div>
+    <input type="submit" id="donate-button" class="btn btn-primary btn-lg" name="user[name]" value="$25">
+  </div>
+</div>
