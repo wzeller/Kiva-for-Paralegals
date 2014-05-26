@@ -17,8 +17,7 @@ KivaClone.Views.ParalegalsShow = Backbone.View.extend({
     if (this.fired === false){
       $('.modal').modal("show")
       this.fired = true; 
-    }
-    
+    } 
   },
 
   handleLoanSelect: function(event){

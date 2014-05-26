@@ -17,7 +17,7 @@ KivaClone.Routers.AppRouter = Backbone.Router.extend({
     KivaClone.Collections.paralegals.fetch()
     var collection = KivaClone.Collections.paralegals;
     var model = collection.first()
-    var indexView = new KivaClone.Views.ParalegalSubview({model: model});
+    var indexView = new KivaClone.Views.ParalegalSubview({collection: collection, model: model});
     $('#content').html(indexView.render().$el);
   },
 
