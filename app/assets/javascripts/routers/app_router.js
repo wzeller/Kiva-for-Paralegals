@@ -29,10 +29,9 @@ KivaClone.Routers.AppRouter = Backbone.Router.extend({
   },
 
   showUser: function(){
-    debugger
     var user = KivaClone.currentUser;
     user.fetch();
-    var userView = new KivaClone.Views.UserShow({model: user});
+    var userView = new KivaClone.Views.UserShow({model: user, collection: user.paralegals()});
     this._swapView(userView);
   },
 

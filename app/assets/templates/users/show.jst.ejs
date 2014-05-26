@@ -11,7 +11,10 @@
     <div class="col-md-10 col-md-offset-1">
       <div id="info-container" class="jumbotron">
         <div id="user-info">
-
+          <%= paralegals.first() %>
+          <% paralegals.each(function(paralegal){ %> 
+            <%= paralegal.escape("name") %>
+          <% }) %>
         </div>
       </div>
     </div>
