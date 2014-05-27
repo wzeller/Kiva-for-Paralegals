@@ -9,7 +9,6 @@ KivaClone.Views.UserShow = Backbone.View.extend({
 
   render: function(){
     var renderedContent = this.template({user: this.model, paralegals: this.collection});
-    console.log(this.collection);
     this.$el.html(renderedContent);
     return this;
   },

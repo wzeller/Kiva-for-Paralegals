@@ -1,3 +1,119 @@
+<style>
+
+  #content {
+    font: .875em/1.357 arial, helvetica, sans-serif;
+  }
+
+  #info-container{
+
+  }
+
+  .jumbotron{
+    margin-top: 10px;
+    background-color: white;
+    margin-left: 9px;
+    -webkit-box-shadow: 0px -2px 8px -4px #888, 1px 1px 4px #ccc;
+  }
+
+  h2 {
+    color: #4b9123;
+    font-family: 'Museo Slab 500', Rockwell, Georgia, serif;
+    font-weight: 500;
+    font-size: 2.357em;
+    margin-left: 20px;
+  }
+
+  #user-info{
+    background-color: white;
+    border-bottom: #CCC 1px dotted;
+    padding-bottom: 40px;
+  }
+
+  #photo{
+    padding: 0;
+    height: 40%;
+  }
+
+  #info{
+    padding-left: 5px;
+    height: 40%;
+  }
+
+  #name{
+    font-size: 2em;
+    color: black;
+  }
+
+  #money{
+    padding-right: 5px;
+    height: 40%;
+  }
+
+  #amount-left{
+    text-decoration: none;
+    color: #197099;
+    float: right;
+    font-size: 25px;
+    line-height: 1;
+    font-family: 'Proxima Nova Semibold', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: normal;
+  }
+
+  #avail{
+    padding-left: 2px;
+    float: right;
+    font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size-adjust: 0.488;
+    font-weight: 200;
+    color: #888;
+    margin-left: 10px;
+    margin-top: 2px;
+    text-transform: uppercase;
+    width: 80px;
+  }
+
+  #add-money{
+    float: right;
+    padding-right: 20%;
+    padding-top: 5px;
+  }
+
+  #donate-button{
+    float: right;
+    margin-top: 3px;
+    margin-right: 30px;
+    background-color: orange;
+  }
+
+  #donations-to-date{
+    color: #4b9123;
+    margin-top: 20px;
+    font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    line-height: 1;
+    font-family: 'Proxima Nova Semibold', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: normal;
+  }
+
+  #outstanding{
+    padding-left: 2px;
+    font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size-adjust: 0.488;
+    font-weight: 200;
+    color: #4b9123;
+    margin-left: 5px;
+    margin-top: 2px;
+    text-transform: uppercase;
+    width: 80px;
+  }
+
+  #outstanding-amounts{
+    margin-top:15px;
+  }
+
+</style>
+
+
 <div class="container">
   <div class="row">
       <div class="col-md-10 col-md-offset-1">
@@ -10,13 +126,48 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div id="info-container" class="jumbotron">
-        <div id="user-info">
-          <%= paralegals.first() %>
-          <% paralegals.each(function(paralegal){ %> 
-            <%= paralegal.escape("name") %>
-          <% }) %>
-        </div>
+        
+        <div id="content" class="container">
+          <div>
+            <div class="row" id="user-info">
+              
+              <div class="col-md-1" id="photo">
+                <div id="img-container">
+                  <img class="img-responsive" src=<%= user.escape("avatar") %>>
+                </div>
+              </div>
+
+              <div class="col-md-5" id="info">
+                <div id="outstanding-amounts">
+                  <span id="name"><%= user.escape("fname") %> <%= user.escape("lname") %><br><br></span>
+                  <span id="donations-to-date"> $0 </span> <span id="outstanding"> in outstanding sponsorships</span>
+                </div>
+              </div>
+
+              <div class="col-md-6" id="money">
+                <div class="row">
+                  <span id="avail"> available <br> for <br> donation </span>
+                  <span id="amount-left"> $<%= user.escape("money") %> </span>
+                </div>
+
+                <div class="row">
+                  <a href="#" id="add-money">Add funds</a>
+                </div>
+
+                <div class="row">
+                   <a href="#paralegals/index"><input type="submit" id="donate-button" class="btn btn-primary btn-md" value="Find a paralegal"></a>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>  
+
+        test
       </div>
     </div>
   </div>
 </div>
+
