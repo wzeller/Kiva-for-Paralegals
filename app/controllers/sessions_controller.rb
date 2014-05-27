@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     
     #handle login as guest by creating new user "Guest"; always start with $1000
     if params[:user][:name] == "Login as guest"
-      user = User.find_by_fname("Guest") || User.create(fname: "Guest", lname: "User", password: "password", email: "hiring?", money: 1000, avatar_file_name: "assets/guest.jpg")
+      user = User.find_by_fname("Guest") || User.create(fname: "Guest", lname: "User", password: "password", email: "hiring?", money: 1000, avatar_file_name: "guest.jpg")
       user.money = 1000
       user.save!
     end

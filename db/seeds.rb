@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Paralegal.create({name: "Juochi Chinelo", country: "Nigeria", organization_id: 1, money: 100, avatar_file_name: "assets/KivaPhotos/1450127.jpg"})
+Paralegal.create({name: "Juochi Chinelo", country: "Nigeria", organization_id: 1, money: 100, avatar_file_name: "https://s3-us-west-1.amazonaws.com/kfp-development/paralegals/KivaPhotos/1450127.jpg"})
 Paralegal.create({name: "Onyinye Amarchi", country: "Nigeria", organization_id: 1, money: 100, avatar_file_name: "assets/KivaPhotos/1457525.jpg"})
 Paralegal.create({name: "Ohanuma Ikouwem", country: "Nigeria", organization_id: 1, money: 100, avatar_file_name: "assets/KivaPhotos/1594733.jpg"})
 Paralegal.create({name: "Adenike Titlayomi", country: "Nigeria", organization_id: 1, money: 100, avatar_file_name: "assets/KivaPhotos/1594739.jpg"})
