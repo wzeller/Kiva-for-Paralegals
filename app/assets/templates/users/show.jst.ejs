@@ -4,10 +4,6 @@
     font: .875em/1.357 arial, helvetica, sans-serif;
   }
 
-  #info-container{
-
-  }
-
   .jumbotron{
     margin-top: 10px;
     background-color: white;
@@ -31,22 +27,22 @@
 
   #photo{
     padding: 0;
-    height: 40%;
+
   }
 
   #info{
     padding-left: 5px;
-    height: 40%;
+
   }
 
   #name{
-    font-size: 2em;
+    font-size: 2.3em;
     color: black;
   }
 
   #money{
     padding-right: 5px;
-    height: 40%;
+
   }
 
   #amount-left{
@@ -108,8 +104,25 @@
   }
 
   #outstanding-amounts{
-    margin-top:15px;
+    margin-top:0px;
   }
+
+  #sponsorships{
+    color: #4b9123;
+    background-color: white;
+  }
+
+  #paralegal-view{
+    background-color: white;
+    float: left;
+  }
+
+  #small-pics{
+    width: 150px;
+    margin-right: 2px;
+    height: 150px;
+  }
+
 
 </style>
 
@@ -127,7 +140,7 @@
     <div class="col-md-10 col-md-offset-1">
       <div id="info-container" class="jumbotron">
         
-        <div id="content" class="container">
+        <div id="inner-content" class="container">
           <div>
             <div class="row" id="user-info">
               
@@ -163,9 +176,22 @@
             </div>
           </div>
 
+            <div id="photo-area">
+              <h4 id="sponsorships">Sponsorships</h4>
+
+              <%paralegals.each(function(paralegal){%>
+              <div id=paralegal-view>
+                <a href=<%= "#/paralegals/" + paralegal.get("id") %>>
+                  <img id="small-pics" class="img-responsive" src=<%= paralegal.get("avatar_file_name") %>>
+                </a>
+                <%= paralegal.escape("name")%>
+                
+              </div>
+              <%})%>
+            </div>
+
         </div>  
 
-        test
       </div>
     </div>
   </div>
