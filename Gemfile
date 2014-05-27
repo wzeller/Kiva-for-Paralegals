@@ -43,6 +43,8 @@ gem 'annotate'
 gem 'bootstrap-sass'
 gem 'rails_12factor'
 gem "paperclip", "~> 4.1"
+gem "aws-sdk"
+gem "figaro"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
