@@ -22,11 +22,12 @@ module Api
         @user.update_attributes(user_params) 
         @paralegal.update_attributes(money: params[:amount] )
         unless @user.paralegals.include?(@paralegal) 
-          Sponsorship.create(user_id: @user.id, donation: donation, paralegal_id: params[:sponsorship])
+          @sponsorship = Sponsorship.create(user_id: @user.id, donation: donation, paralegal_id: params[:sponsorship])
         end
       end
       
-      if @user.update_attributes(user_params) 
+
+      unless @sponsorship.errors || @user.errors || @paralegal.errors
         render partial: "api/users/user", locals: {user: @user} 
       else
         render json: { errors: @user.errors.full_messages }, status: 422
