@@ -41,9 +41,9 @@ KivaClone.Views.ParalegalsShow = Backbone.View.extend({
     var userMoney = user.get("money");
     var remainingMoney = userMoney - donation; 
     if (userMoney >= donation){
-      user.save({money: remainingMoney, sponsorship: this.model.id, amount: paralegalMoney}, {
+      user.save({money: remainingMoney, sponsorship: this.model.id, donation: donation, amount: paralegalMoney}, {
         success: function(){
-          that.model.fetch({
+          that.model.fetch({ 
             success: function(){
               KivaClone.currentUser.fetch({
                 success: function(){

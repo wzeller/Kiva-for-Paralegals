@@ -153,7 +153,7 @@
               <div class="col-md-5" id="info">
                 <div id="outstanding-amounts">
                   <span id="name"><%= user.escape("fname") %> <%= user.escape("lname") %><br><br></span>
-                  <span id="donations-to-date"> $0 </span> <span id="outstanding"> in outstanding sponsorships</span>
+                  <span id="donations-to-date"> $<%= user.escape("total_sponsorships")%></span> <span id="outstanding"> in outstanding sponsorships</span>
                 </div>
               </div>
 

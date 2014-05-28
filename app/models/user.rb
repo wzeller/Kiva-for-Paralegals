@@ -58,6 +58,11 @@ def reset_session_token!
   self.session_token 
 end
 
+def total_sponsorships
+  donations = self.sponsorships.map{|sponsorship| sponsorship.donation}
+  donations.inject{|sum, donation| sum + donation}
+end
+
 private
 
 def ensure_session_token
