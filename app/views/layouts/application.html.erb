@@ -42,7 +42,7 @@ li{
   padding-left: 111px;
 }
 
-#footer{
+.footer{
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f7f7f2), color-stop(1, #c2e5a2));
   background-image: -ms-linear-gradient(top, #f7f7f2 0%, #c2e5a2 100%);
   background-image: linear-gradient(top, #f7f7f2, #c2e5a2);
@@ -69,6 +69,24 @@ li{
   margin-left: 0;
   margin-right: 0;
 }
+
+.hidden-elements{
+  display: none;
+
+}
+
+#content {
+  font: .875em/1.357 arial, helvetica, sans-serif;
+}
+
+#home-page-info{
+
+  margin-top: 100px;
+  background-color: white;
+  margin-left: 9px;
+  -webkit-box-shadow: 0px -2px 8px -4px #888, 1px 1px 4px #ccc;
+}
+
 
 
 </style>
@@ -143,13 +161,27 @@ li{
       </ul>
     </div>
   </nav>
+
 <%= yield %>
-<div id ="footer" class="container-fluid"></div>
 
-<div class="head-strip container-fluid" id="bottom-strip">
-  <div class="container-fluid" id="bottom-tagline">Giving changes lives.</div>
-</div>
+  <div class="footer container-fluid"> 
+    <div class="hidden-elements">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div id="home-page-info" class="jumbotron">
+              <div id="paralegalInfo">
+                <h1> test </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
+  <div class="head-strip container-fluid" id="bottom-strip">
+    <div class="container-fluid" id="bottom-tagline">Giving changes lives.</div>
+  </div>
 </body>
 </html>
