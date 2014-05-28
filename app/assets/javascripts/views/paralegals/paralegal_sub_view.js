@@ -34,7 +34,7 @@
     var userMoney = user.get("money");
     var remainingMoney = userMoney - donation; 
     if (userMoney > donation){
-      user.save({money: remainingMoney, sponsorship: this.model.id, amount: paralegalMoney}, {
+      user.save({money: remainingMoney, sponsorship: this.model.id, donation: donation, amount: paralegalMoney}, {
         success: function(){
           that.model.fetch({
             success: function(){
@@ -47,10 +47,9 @@
               });
             }
           });
-         
         },
-        errors: function(){
-          alert("Something went wrong -- try again!");
+        error: function(model, response){
+          alert("Something went wrong -- please try again.")
         }
       })
 

@@ -16,22 +16,23 @@ module Api
       @user = current_user
       @paralegal = Paralegal.find(params[:sponsorship])
       money = params[:money]
-      donation = params[:donation]
-    
+      @sponsorship = Sponsorship.new
+
       ActiveRecord::Base.transaction do 
         @user.update_attributes(user_params) 
-        @paralegal.update_attributes(money: params[:amount] )
-        unless @user.paralegals.include?(@paralegal) 
-          @sponsorship = Sponsorship.create(user_id: @user.id, donation: donation, paralegal_id: params[:sponsorship])
+        @paralegal.update_attributes(money: params[:amount] )  
+        unless @user.paralegals.include?(@paralegal)
+         @sponsorship = Sponsorship.new(user_id: @user.id, donation: params[:donation], paralegal_id: params[:sponsorship])
+         @sponsorship.save!
         end
-      end
-      
+      end 
 
-      unless @sponsorship.errors || @user.errors || @paralegal.errors
+      if (@user.errors.full_messages.length + @sponsorship.errors.full_messages.length + @paralegal.errors.full_messages.length) == 0
         render partial: "api/users/user", locals: {user: @user} 
       else
-        render json: { errors: @user.errors.full_messages }, status: 422
+        render json: { user_errors: @user.errors.full_messages, paralegal_errors: @paralegal.errors.full_messages, sponsor_errors: @sponsorship.errors.full_messages }, status: 422
       end
+
     end
     
     private
