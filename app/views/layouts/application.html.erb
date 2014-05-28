@@ -29,6 +29,48 @@ li{
   float: left;
 }
 
+#bottom-strip{
+  height: 35px;
+  border-bottom: none;
+  padding-bottom: none;
+  font-size: 1.4em;
+}
+
+#bottom-tagline{
+  color: white;
+  padding-top: 5px;
+  padding-left: 111px;
+}
+
+#footer{
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f7f7f2), color-stop(1, #c2e5a2));
+  background-image: -ms-linear-gradient(top, #f7f7f2 0%, #c2e5a2 100%);
+  background-image: linear-gradient(top, #f7f7f2, #c2e5a2);
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  min-height: 500px;
+  padding: 0px;
+}
+
+#tagline{
+  padding-top: 14px;
+  padding-left: 111px;
+}
+
+.head-strip{
+  font-family:"Museo Slab 300", Rockwell, Georgia, serif;
+  font-weight:300;
+  font-style:normal;
+  font-size:1.8em;
+  color: white;
+  background: #74b446;
+  height: 70px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
 </style>
 
 <% if current_user %>
@@ -102,6 +144,12 @@ li{
     </div>
   </nav>
 <%= yield %>
+<div id ="footer" class="container-fluid"></div>
+
+<div class="head-strip container-fluid" id="bottom-strip">
+  <div class="container-fluid" id="bottom-tagline">Giving changes lives.</div>
+</div>
+
 
 </body>
 </html>
