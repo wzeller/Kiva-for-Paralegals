@@ -49,11 +49,17 @@ label{
   margin-top: 100px;
 }
 
+#sign-in-box{
+  -webkit-box-shadow: 0px -2px 8px -4px #888, 1px 1px 4px #ccc;
+  box-shadow: 0px -2px 8px -4px #888, 1px 1px 4px #ccc;
+  border: #ccc 1px solid;
+}
+
 </style>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4 col-md-offset-4"> 
+    <div id="sign-in-box" class="col-md-4 col-md-offset-4"> 
       <%= render "layouts/errors" %>
       New to Kiva for Paralegals? <a href="<%= new_user_url %>">Register</a><br>
       <h3>Sign in using our form</h3>
