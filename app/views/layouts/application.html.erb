@@ -72,7 +72,6 @@ li{
 
 .hidden-elements{
   display: none;
-
 }
 
 #content {
@@ -80,14 +79,110 @@ li{
 }
 
 #home-page-info{
-
   margin-top: 100px;
+  margin-bottom: 100px;
+  padding-top: 10px;
   background-color: white;
-  margin-left: 9px;
   -webkit-box-shadow: 0px -2px 8px -4px #888, 1px 1px 4px #ccc;
+  border: #ccc 1px solid;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
+#about-box{
+  font-family: 'Proxima Nova Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  font-size-adjust: 0.488;
+  color: #4b9123;
+}
 
+#about-header {
+  font-size: .9em;
+  font-weight: 300;
+}
+
+#about-link{
+  float: right;
+  line-height: 1.25em;
+  font-weight: 200;
+  margin-top: 2px;
+}
+
+.about-list{
+  list-style: none;
+  color: #333;
+}
+
+.number{
+  background-color: #74b446;
+  color: #fff;
+  display: inline-block;
+  margin-right: 10px;
+  padding: 3px;
+  width: 47px;
+  height: 47px;
+  text-align: center;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 5px;
+  border-radius: 50px;
+  font-family: "Museo Slab 500", Rockwell, Georgia, serif;
+  font-weight: 500;
+  font-size: 2em;
+  line-height: 1.25em;
+  padding: 3px;
+  margin-bottom: 8px;
+}
+
+.home-list-item{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.8em;
+  line-height: 1.428571429;
+  font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size-adjust: 0.488;
+  font-weight: 200;
+  min-height: 400px;
+}
+
+#about-text{
+  font-size: 1.3em;
+}
+
+#about-block{
+  padding-bottom: 45px;
+}
+
+#home-index-button{
+  line-height: 1.9em;
+  padding-right: 1.4em;
+  padding-left: 1.4em;
+  -moz-border-radius: 2em;
+  -webkit-border-radius: 2em;
+  border-radius: 2em;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  vertical-align: bottom;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #ffffff),color-stop(1, #e1e1e1));
+  background-color: #f1efed;
+  border-color: #74b446;
+  color: #4b9123;
+  font-family: 'Proxima Nova Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1.4286em;
+  text-decoration: none;
+  margin-left: 13px;
+}
+
+#home-index-button:hover{
+   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #ffffff),color-stop(1, #74b446));
+}
 
 </style>
 
@@ -168,13 +263,58 @@ li{
     <div class="hidden-elements">
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-md-offset-1">
+
+          <div class="col-md-6 col-md">
             <div id="home-page-info" class="jumbotron">
               <div id="paralegalInfo">
-                <h1> test </h1>
+                <div class="page-header" id="about-box">
+                  <span id="about-header"> How it works 
+                    
+                  </h4>
+                </div>
+                  <ol style="padding-left: 0px">
+                    <li class="about-list">
+                      <span class="number">1</span>
+                      <span class="home-list-item">Read their stories.</span>
+                    </li>
+                    <li class="about-list">
+                      <span class="number">2</span>
+                      <span class="home-list-item">Choose one to sponsor.</span>
+                    </li>
+                    <li class="about-list">
+                      <span class="number">3</span>
+                      <span class="home-list-item">Follow their progress.</span>
+                    </li>
+                    <li class="about-list">
+                      <span class="number">4</span>
+                      <span class="home-list-item">Repeat!</span>
+                    </li>
+                  </ol>
+                  <div>
+                    <a href="#paralegals/index" id="home-index-button" > Ready? Find a paralegal!</a>
+                  </div>
               </div>
             </div>
           </div>
+
+          <div class="col-md-6 col-md">
+            <div id="home-page-info" class="jumbotron">
+              <div id="about-block">
+                <div class="page-header" id="about-box">
+                  <span id="about-header"> About the program <span>
+                    <span>
+                      <a href="#about" id="about-link">learn more</a>
+                    </span>
+                </div>
+                <div>
+                  <span class="home-list-item" id="about-text">
+                    In a world where 4 billion people live outside the protection of the law, <a href="http://www.namati.org/about/">Namati</a> is dedicated to putting the law in people’s hands. We’re building a movement of grassroots legal advocates who work with communities to advance justice. These advocates are fighting on the front lines to ensure that people can protect their land, access essential services, and take part in the decisions that govern their lives.
+                  <span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -183,5 +323,6 @@ li{
   <div class="head-strip container-fluid" id="bottom-strip">
     <div class="container-fluid" id="bottom-tagline">Giving changes lives.</div>
   </div>
+
 </body>
 </html>
