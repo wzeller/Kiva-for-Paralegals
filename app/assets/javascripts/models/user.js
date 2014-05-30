@@ -7,6 +7,11 @@ KivaClone.Models.User = Backbone.Model.extend({
       this.paralegals().set(response.paralegals);
       delete response.paralegals;
     }
+
+    if (response.teams){
+      this.teams().set(response.teams);
+      delete response.teams;
+    }
     return response; 
   },
 
@@ -15,6 +20,13 @@ KivaClone.Models.User = Backbone.Model.extend({
       this._paralegals = new KivaClone.Collections.Paralegals()
     }
     return this._paralegals;
+  },
+
+  teams: function(){
+    if (!this._teams) {
+      this._teams = new KivaClone.Collections.Teams()
+    }
+    return this._teams;
   },
 
 });

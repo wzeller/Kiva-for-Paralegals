@@ -45,8 +45,7 @@ KivaClone.Routers.AppRouter = Backbone.Router.extend({
   myTeamsPage: function(){
     var user = KivaClone.currentUser;
     user.fetch();
-    debugger
-    var myTeamsView = new KivaClone.Views.TeamShow({model: user, collection: user.teams});
+    var myTeamsView = new KivaClone.Views.TeamShow({model: user, collection: user.teams()});
     this._swapView(myTeamsView);
   },
 
