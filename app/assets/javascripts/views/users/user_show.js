@@ -20,10 +20,6 @@ KivaClone.Views.UserShow = Backbone.View.extend({
         that.model.fetch({ 
           success: function(){
             alert("You have $1000 more dollars.  Wow -- that was easy!")
-          //   $("#donation-area").html('<div class="alert alert-success">You have $1000 more dollars.  Wow -- that was easy!</div>')
-          //   that.render()
-          //   debugger
-          //   $('.alert').fadeOut(4000, function(){});
           }
         });   
       },

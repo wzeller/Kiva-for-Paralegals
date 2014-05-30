@@ -9,6 +9,7 @@ module Api
     def show
       @user = User.find(params[:id])
       @paralegals = @user.paralegals
+      @teams = @user.teams
       render "api/users/show", locals: {user: @user}
     end
 

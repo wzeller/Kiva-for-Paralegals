@@ -1,0 +1,176 @@
+<style>
+
+  #content {
+    font: .875em/1.357 arial, helvetica, sans-serif;
+  }
+
+  .jumbotron{
+    margin-top: 10px;
+    background-color: white;
+    margin-left: 9px;
+    -webkit-box-shadow: 0px -2px 8px -4px #888, 1px 1px 4px #ccc;
+  }
+
+  h2 {
+    color: #4b9123;
+    font-family: 'Museo Slab 500', Rockwell, Georgia, serif;
+    font-weight: 500;
+    font-size: 2.357em;
+    margin-left: 20px;
+  }
+
+  #user-info{
+    background-color: white;
+    border-bottom: #CCC 1px dotted;
+    padding-bottom: 40px;
+  }
+
+  #photo{
+    padding: 0;
+
+  }
+
+  #info{
+    padding-left: 5px;
+
+  }
+
+  #name{
+    font-size: 2.3em;
+    color: black;
+  }
+
+  #money{
+    padding-right: 5px;
+
+  }
+
+  #amount-left{
+    text-decoration: none;
+    color: #197099;
+    float: right;
+    font-size: 25px;
+    line-height: 1;
+    font-family: 'Proxima Nova Semibold', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: normal;
+  }
+
+  #avail{
+    padding-left: 2px;
+    float: right;
+    font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size-adjust: 0.488;
+    font-weight: 200;
+    color: #888;
+    margin-left: 10px;
+    margin-top: 2px;
+    text-transform: uppercase;
+    width: 80px;
+  }
+
+  #add-money{
+    float: right;
+    padding-right: 20%;
+    padding-top: 5px;
+  }
+
+  #donate-button{
+    float: right;
+    margin-top: 3px;
+    margin-right: 30px;
+    background-color: orange;
+  }
+
+  #donations-to-date{
+    color: #4b9123;
+    margin-top: 20px;
+    font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    line-height: 1;
+    font-family: 'Proxima Nova Semibold', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: normal;
+  }
+
+  #outstanding{
+    padding-left: 2px;
+    font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size-adjust: 0.488;
+    font-weight: 200;
+    color: #4b9123;
+    margin-left: 5px;
+    margin-top: 2px;
+    text-transform: uppercase;
+    width: 80px;
+  }
+
+  #outstanding-amounts{
+    margin-top:0px;
+  }
+
+  #sponsorships{
+    color: #4b9123;
+    background-color: white;
+  }
+
+  #paralegal-view{
+    background-color: white;
+    float: left;
+  }
+
+  #small-pics{
+    width: 150px;
+    margin-right: 2px;
+    height: 150px;
+  }
+
+
+</style>
+
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h2>Your teams</h2>
+      </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div id="info-container" class="jumbotron">
+        
+        <div id="inner-content" class="container">
+          <div>
+            <div class="row" id="user-info">
+              
+              <div class="col-md-1" id="photo">
+                <div id="img-container">
+                  <img class="img-responsive" src=<%= user.escape("avatar") %>>
+                </div>
+              </div>
+
+             
+
+              </div>
+            </div>
+          </div>
+
+            <div id="photo-area">
+              <h4 id="teams">Teams</h4>
+
+              <%teams.each(function(team){%>
+              <div id=team-view>
+                  <img id="small-pics" class="img-responsive" src=<%= team.get("avatar") %>>
+                <%= team.escape("name")%>
+                
+              </div>
+              <%})%>
+            </div>
+
+        </div>  
+
+      </div>
+    </div>
+  </div>
+</div>

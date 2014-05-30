@@ -6,6 +6,7 @@ KivaClone.Routers.AppRouter = Backbone.Router.extend({
     "paralegals/:id": "showParalegal",
     "user": "showUser",
     "about": "aboutPage",
+    "myTeams": "myTeamsPage" 
   },
 
   home: function(){
@@ -39,6 +40,14 @@ KivaClone.Routers.AppRouter = Backbone.Router.extend({
   aboutPage: function(){
     var aboutView = new KivaClone.Views.About();
     this._swapView(aboutView);
+  },
+
+  myTeamsPage: function(){
+    var user = KivaClone.currentUser;
+    user.fetch();
+    debugger
+    var myTeamsView = new KivaClone.Views.TeamShow({model: user, collection: user.teams});
+    this._swapView(myTeamsView);
   },
 
   _swapView: function (newView) {

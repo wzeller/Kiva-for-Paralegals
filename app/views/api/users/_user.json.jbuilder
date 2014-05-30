@@ -7,3 +7,11 @@ unless paralegals.nil?
     json.partial!("api/paralegals/paralegal", :paralegal => paralegal)
   end
 end
+
+teams ||= nil
+
+unless teams.nil?
+  json.teams(teams) do |team|
+    json.partial!("api/teams/team", :team => team)
+  end
+end
