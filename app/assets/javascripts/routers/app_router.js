@@ -2,11 +2,12 @@ KivaClone.Routers.AppRouter = Backbone.Router.extend({
 
   routes: {
     "": "home",
-    "paralegals/index": "index",
+    "paralegals/index": "paralegalIndex",
     "paralegals/:id": "showParalegal",
     "user": "showUser",
     "about": "aboutPage",
-    "myTeams": "myTeamsPage" 
+    "myTeams": "myTeamsPage", 
+    "teams/index": "teamsIndex"
   },
 
   home: function(){
@@ -16,7 +17,7 @@ KivaClone.Routers.AppRouter = Backbone.Router.extend({
     this._swapView(homeView);
   },
 
-  index: function(){
+  paralegalIndex: function(){
     KivaClone.Collections.paralegals.fetch()
     var collection = KivaClone.Collections.paralegals;
     var indexView = new KivaClone.Views.ParalegalsIndex({collection: collection});
@@ -47,6 +48,13 @@ KivaClone.Routers.AppRouter = Backbone.Router.extend({
     user.fetch();
     var myTeamsView = new KivaClone.Views.TeamShow({model: user, collection: user.teams()});
     this._swapView(myTeamsView);
+  },
+
+  teamsIndex: function(){
+    KivaClone.Collections.teams.fetch()
+    var collection = KivaClone.Collections.teams;
+    var teamIndexView = new KivaClone.Views.TeamsIndex({collection: collection});
+    this._swapView(teamIndexView);
   },
 
   _swapView: function (newView) {

@@ -5,3 +5,5 @@ KivaClone.Collections.Teams = Backbone.Collection.extend({
   model: KivaClone.Models.Team,
 
 });
+
+KivaClone.Collections.teams = new KivaClone.Collections.Teams()
