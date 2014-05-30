@@ -11,8 +11,10 @@
 #
 
 class Sponsorship < ActiveRecord::Base
+
   validates :user, :paralegal, :donation, presence: true 
   
   belongs_to :user, inverse_of: :sponsorships
   belongs_to :paralegal, inverse_of: :sponsorships
+
 end
