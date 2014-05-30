@@ -10,11 +10,11 @@ KivaClone.Models.Team = Backbone.Model.extend({
     return response; 
   },
 
-  paralegals: function(){
+  members: function(){
     if (!this._members) {
       this._members = new KivaClone.Collections.Users()
     }
-    return this._memberss;
+    return this._members;
   },
 
 });

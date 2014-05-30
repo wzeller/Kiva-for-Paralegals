@@ -66,8 +66,8 @@
   }
   
   .alert{
-    margin-top:10px;
-    width: 50%;
+    width: 40%;
+    height: 80%;
   }
 
 </style>
@@ -78,7 +78,6 @@
       
       <div class="col-md-4" id="photo">
         <div id="img-container">
-          <% var thumb= team.get("avatar").replace("original", "thumb") %>
           <img class="img-responsive" src=<%= team.get("avatar") %>>
         </div>
       </div>
@@ -93,9 +92,9 @@
         </a>
       </div>
       
-     
-      <div class="col-md-4 join">
-     
+      
+      <div class="col-md-4 join <%= team.get("id")%>">
+        <%= team.escape("members") %>
         <input type="submit" id="join-button" class="btn btn-primary btn-sm" value="Join this team!">
       </div>
      

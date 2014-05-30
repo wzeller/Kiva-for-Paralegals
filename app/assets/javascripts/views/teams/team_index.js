@@ -13,7 +13,6 @@ KivaClone.Views.TeamsIndex = Backbone.CompositeView.extend({
   template: JST['teams/index'],
 
   addTeam: function(team){
-
     var teamView = new KivaClone.Views.TeamSubview({model: team});
     this.addSubview("#teamInfo", teamView);
   },

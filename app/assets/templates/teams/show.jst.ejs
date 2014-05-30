@@ -27,6 +27,7 @@
 
   #photo{
     padding: 0;
+    max-width: 300px;
   }
 
   #info{
@@ -124,7 +125,7 @@
               <div class="col-md-5" id="user-name">
                 <span id="name"><%= user.escape("fname") %> <%= user.escape("lname") %></span>
               </div>
-
+            
               <div class="col-md-3" id="create-team">
                    <a href="teams/new"><input type="submit" id="create-team-button" class="btn btn-primary btn-md" value="Make a new team!"></a>
               </div>

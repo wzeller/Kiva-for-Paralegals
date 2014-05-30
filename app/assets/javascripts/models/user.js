@@ -29,4 +29,9 @@ KivaClone.Models.User = Backbone.Model.extend({
     return this._teams;
   },
 
+  thumbnail: function(){
+    var thumb = this.get("avatar").replace("original", "thumb");
+    return thumb
+  },
+
 });
