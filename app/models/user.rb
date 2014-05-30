@@ -19,54 +19,56 @@
 #
 
 class User < ActiveRecord::Base
-attr_reader :password, :avatar 
-validates :fname, :lname, :password_digest, presence: :true
-validates :email, :session_token, presence: true, uniqueness: true
-validates :password, length: {minimum: 6, allow_nil: :true}
 
-before_validation :ensure_session_token
+  attr_reader :password, :avatar 
+  validates :fname, :lname, :password_digest, presence: :true
+  validates :email, :session_token, presence: true, uniqueness: true
+  validates :password, length: {minimum: 6, allow_nil: :true}
 
-belongs_to :team
-has_many :sponsorships, inverse_of: :user, dependent: :destroy 
-has_many :paralegals, through: :sponsorships, source: :paralegal
+  before_validation :ensure_session_token
 
-has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => "/images/:style/guest.jpg"
-validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
+  has_many :team_memberships, inverse_of: :user 
+  has_many :teams, through: :team_memberships, source: :team
+  has_many :sponsorships, inverse_of: :user, dependent: :destroy 
+  has_many :paralegals, through: :sponsorships, source: :paralegal
 
-def self.generate_session_token
-  SecureRandom::urlsafe_base64(16)
-end
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => "/images/:style/guest.jpg"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
 
-def self.find_by_credentials(email, password)
-  user = User.find_by_email(email)
-  user.try(:is_password?, password) ? user : nil 
-end
+  def self.generate_session_token
+    SecureRandom::urlsafe_base64(16)
+  end
 
-def password=(plainText)
-  @password = plainText
-  self.password_digest = BCrypt::Password.create(@password)
-end
+  def self.find_by_credentials(email, password)
+    user = User.find_by_email(email)
+    user.try(:is_password?, password) ? user : nil 
+  end
 
-def is_password?(plaintext)
-  BCrypt::Password.new(self.password_digest).is_password?(plaintext)
-end
+  def password=(plainText)
+    @password = plainText
+    self.password_digest = BCrypt::Password.create(@password)
+  end
 
-def reset_session_token!
-  self.session_token = self.class.generate_session_token
-  self.save!
-  self.session_token 
-end
+  def is_password?(plaintext)
+    BCrypt::Password.new(self.password_digest).is_password?(plaintext)
+  end
 
-def total_sponsorships
-  donations = self.sponsorships.map{|sponsorship| sponsorship.donation}
-  donations.inject{|sum, donation| sum + donation}
-end
+  def reset_session_token!
+    self.session_token = self.class.generate_session_token
+    self.save!
+    self.session_token 
+  end
 
-private
+  def total_sponsorships
+    donations = self.sponsorships.map{|sponsorship| sponsorship.donation}
+    donations.inject{|sum, donation| sum + donation}
+  end
 
-def ensure_session_token
-  self.session_token ||= self.class.generate_session_token
-end
+  private
+
+  def ensure_session_token
+    self.session_token ||= self.class.generate_session_token
+  end
 
 end

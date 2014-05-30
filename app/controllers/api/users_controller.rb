@@ -12,13 +12,8 @@ module Api
       render "api/users/show", locals: {user: @user}
     end
 
-    def addMoney
-      @user = current_user
-      @user.update_attributes(user_params)
-      render partial: "api/users/user", locals: {user: @user} 
-    end
-
     def update
+
       if params[:sponsorship] == ""
         @user = current_user
         @user.update_attributes(user_params)
