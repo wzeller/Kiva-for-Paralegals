@@ -3,7 +3,6 @@ KivaClone.Views.ParalegalsIndex = Backbone.CompositeView.extend({
   initialize: function(){
     this.render();
     this.listenTo(this.collection, "sync add remove", this.render);
-    this.listenTo(this.collection, "sync", this.addParalegal);
     var that = this;
     this.paralegalViews = this.collection.each(function(paralegal){
       that.addParalegal(paralegal);
