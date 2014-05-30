@@ -27,7 +27,6 @@
 
   #photo{
     padding: 0;
-
   }
 
   #info{
@@ -40,41 +39,7 @@
     color: black;
   }
 
-  #money{
-    padding-right: 5px;
-
-  }
-
-  #amount-left{
-    text-decoration: none;
-    color: #197099;
-    float: right;
-    font-size: 25px;
-    line-height: 1;
-    font-family: 'Proxima Nova Semibold', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    font-weight: normal;
-  }
-
-  #avail{
-    padding-left: 2px;
-    float: right;
-    font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    font-size-adjust: 0.488;
-    font-weight: 200;
-    color: #888;
-    margin-left: 10px;
-    margin-top: 2px;
-    text-transform: uppercase;
-    width: 80px;
-  }
-
-  #add-money{
-    float: right;
-    padding-right: 20%;
-    padding-top: 5px;
-  }
-
-  #donate-button{
+  #create-team-button{
     float: right;
     margin-top: 3px;
     margin-right: 30px;
@@ -107,7 +72,7 @@
     margin-top:0px;
   }
 
-  #sponsorships{
+  #teams{
     color: #4b9123;
     background-color: white;
   }
@@ -118,11 +83,17 @@
   }
 
   #small-pics{
-    width: 150px;
+  
     margin-right: 2px;
-    height: 150px;
+  }
+  
+  #create-team{
+    float: right;
   }
 
+  #team-view{
+    color:  #197099;
+  }
 
 </style>
 
@@ -147,26 +118,42 @@
               <div class="col-md-1" id="photo">
                 <div id="img-container">
                   <img class="img-responsive" src=<%= user.escape("avatar") %>>
-                  <span id="name"><%= user.escape("fname") %> <%= user.escape("lname") %><br><br></span>
                 </div>
               </div>
+
+              <div class="col-md-5" id="user-name">
+                <span id="name"><%= user.escape("fname") %> <%= user.escape("lname") %></span>
+              </div>
+
+              <div class="col-md-3" id="create-team">
+                   <a href="teams/new"><input type="submit" id="create-team-button" class="btn btn-primary btn-md" value="Make a new team!"></a>
+              </div>
+
             </div>
           </div>
         </div>
+        
+        <div id="inner-content" class="container">
+          <div>
+            <div class="row" id="user-info">
 
-            <div id="photo-area">
-              <h4 id="teams">Teams</h4>
+                <div id="photo-area">
+                  <h4 id="teams">Teams</h4>
 
-              <%teams.each(function(team){%>
-              <div id=team-view>
-                  <img id="small-pics" class="img-responsive" src=<%= team.get("avatar") %>>
-                <%= team.escape("name")%>
-                
-              </div>
-              <%})%>
-            </div>
+                  <%teams.each(function(team){%>
+                  <div id=team-view>
+                      <img id="small-pics" class="img-responsive" src=<%= team.get("avatar") %>>
+                      <%= team.escape("name")%>
+                    
+                  </div>
+                  <%})%>
+                </div>
 
-        </div>  
+            </div>  
+           </div>
+          </div>
+        </div>
+   
 
       </div>
     </div>
