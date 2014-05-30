@@ -22,11 +22,11 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-    min-height: 200px;
-    max-height: 250px; 
+    min-height: 100px;
+    max-height: 150px; 
   }
 
-  #paralegalName {
+  #teamName {
     color: #197099;
     text-decoration: none;
     font-family: 'Proxima Nova Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -34,6 +34,7 @@
     font-size-adjust: 0.488;
     font-weight: 400;
     margin-bottom: 3px;
+    margin-top: 10px;
   }
 
   #country{
@@ -48,9 +49,9 @@
     background-color: orange;
   }
 
-  .fundraising{
+  .join{
     color: #333;
-    margin-top: 15px;
+    margin-top: 50px;
     font: .875em/1.357 arial, helvetica, sans-serif;
     font-weight: 500;
     height: 15%;
@@ -77,6 +78,7 @@
       
       <div class="col-md-4" id="photo">
         <div id="img-container">
+          <% var thumb= team.get("avatar").replace("original", "thumb") %>
           <img class="img-responsive" src=<%= team.get("avatar") %>>
         </div>
       </div>
@@ -85,14 +87,14 @@
         <a href=<%= "#/teams/" + team.get("id") %>>
           <h1 id="teamName"><%=team.escape("name")%></h1>
         </a>
-        <div id="blurb">Join the folks at <%= team.escape("name")%> and their fight for justice.</div>
-        <a href=<%= "#/teams/" + team.get("id") %>>
+        <div id="blurb">Join the folks at <%= team.escape("name")%> and their fight for justice.</div><br>
+        <a id="read-more" href=<%= "#/teams/" + team.get("id") %>>
         Read more about them.
         </a>
       </div>
       
      
-      <div class="col-md-4 fundraising">
+      <div class="col-md-4 join">
      
         <input type="submit" id="join-button" class="btn btn-primary btn-sm" value="Join this team!">
       </div>
