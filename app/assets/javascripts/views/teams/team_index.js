@@ -1,7 +1,6 @@
 KivaClone.Views.TeamsIndex = Backbone.CompositeView.extend({
   
   initialize: function(){
-
     this.listenTo(this.collection, "sync add remove", this.render);
     this.listenTo(this.collection, "add", this.addTeam);
     var that = this;
