@@ -27,4 +27,4 @@ allow messaging, and to handle actual payments (using a third-party solution suc
 technical problems with my interests in international human rights law and helping people, and I'm really excited to keep 
 building it for JEI.
 
-<tt>rake doc:app</tt>.
+
