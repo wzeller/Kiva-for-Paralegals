@@ -5,7 +5,7 @@ This project is hosted at www.worldJustice.co.
 I was asked to design a prototype for a non-profit called Justice Empowerment International (www.justempower.org).  Their 
 organization trains local citizens in Nigeria to provide paralegal services to impoverished clients who otherwise would
 go without legal representation.  These indigent clients would otherwise have no recourse against such unfortunately frequent
-occurrences as wrongful eviction and police brutality.  They wanted a fundraising platform similar to Kiva (www.kiva.org).  
+occurrences as wrongful eviction and police brutality.  JEI wants a fundraising platform similar to Kiva (www.kiva.org).  
 Specifically, they want a way for users to sign up, learn about paralegals, and choose one (or several) to help sponsor.  
 Unlike traditional fundraising websites (and like Kiva), a user can sponsor a small amount of a paralegal's monthly costs -- 
 crowdfunding for paralegals!  The sponsors can then track the paralegal's progress and cases.  Over time (the organization
