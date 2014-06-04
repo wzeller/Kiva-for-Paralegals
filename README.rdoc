@@ -1,28 +1,30 @@
-== README
+== Kiva for Paralegals
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is hosted at www.worldJustice.co.  
 
-Things you may want to cover:
+I was asked to design a prototype for a non-profit called Justice Empowerment International (www.justempower.org).  Their 
+organization trains local citizens in Nigeria to provide paralegal services to impoverished clients who otherwise would
+go without legal representation.  These indigent clients would otherwise have no recourse against such unfortunately frequent
+occurrences as wrongful eviction and police brutality.  They wanted a fundraising platform similar to Kiva (www.kiva.org).  
+Specifically, they want a way for users to sign up, learn about paralegals, and choose one (or several) to help sponsor.  
+Unlike traditional fundraising websites (and like Kiva), a user can sponsor a small amount of a paralegal's monthly costs -- 
+crowdfunding for paralegals!  The sponsors can then track the paralegal's progress and cases.  Over time (the organization
+is in its early stages), the paralegals will have significant data about their effectiveness, which sponsors can 
+review when choosing whom to sponsor.
 
-* Ruby version
+For a technical challenge, I cloned the main look and functionality of Kiva in a (mostly) single-page app using Backbone.js 
+to practice front-end development while using Rails to creating a database, associations and RESTful API on the backend 
+provide the features and store the relevant information JEI wanted. I'm continuing to work with JEI to create a 
+website that meets their and their user's needs, including developing a form and procedure for easy entry 
+of new paralegal data.  The goal is for this platform to not only be used by JEI but potentially other organizations within a group 
+called Namati, which train paralegals throughout Africa.  
 
-* System dependencies
+Currently, the site allows users to sign up, create accounts, upload their photo, review the paralegals, sponsor them, view their sponsors, 
+create and join donation teams, and review their teams.  Users can also see how much in total sponsorships they have outstanding, and 
+can see on the paralegal's page all others who are participating in sponsoring that person. The next steps are to implement a 
+blogging system (allowing paralegals to provide updates viewable only by sponsors), to include case information and data, to 
+allow messaging, and to handle actual payments (using a third-party solution such as Stripe).  This project combines a lot of interesting 
+technical problems with my interests in international human rights law and helping people, and I'm really excited to keep 
+building it for JEI.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
