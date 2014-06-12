@@ -21,7 +21,6 @@ module Api
         render partial: "api/users/user", locals: {user: @user}
       
       else 
-        #using update because I wanted to use backbone's save instead of ajax request with custom routes -- need to refactor
         @user = current_user
         @paralegal = Paralegal.find(params[:sponsorship])
         money = params[:money]
